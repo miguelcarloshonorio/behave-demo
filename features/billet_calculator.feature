@@ -1,5 +1,5 @@
-@create
-Feature: Calculate Operations
+@billet_calculator
+Feature: Calculate Billet Operations
 
 @late_billet_calculator
 Scenario: Addition Operations
