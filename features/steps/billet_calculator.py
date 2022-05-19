@@ -1,6 +1,8 @@
 from datetime import datetime
+from helpers.utils import Utils
+
 from behave import then, given, when
-from hamcrest import assert_that, equal_to, greater_than, none, is_not
+
 _ignore_step_entry = "-"
 
 
@@ -11,12 +13,12 @@ def step_impl(context, amount):
 
 @given('the date due is {date_due}')
 def step_impl(context, date_due):
-    context.date_due = datetime.strftime(date_due, "%Y-%m-%dT%H:%M:%S.%fZ")
+    context.date_due = Utils.CovertToTime(date_due)
 
 
 @given('the payment date is {payment_date}')
 def step_impl(context, payment_date):
-    context.payment_date = datetime.strftime(payment_date, "%Y-%m-%dT%H:%M:%S.%fZ")
+    context.payment_date = Utils.CovertToTime(payment_date)
 
 
 @given('the late fee is {late_fee_percent} percent')
