@@ -6,8 +6,4 @@ class Utils:
     @classmethod
     def CovertToTime(cls, string_date):
         d = dt.datetime.strptime(string_date, "%Y-%m-%d")
-
-        # Convert datetime object to date object.
-        d = d.date()
-
         return d

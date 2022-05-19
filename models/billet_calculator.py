@@ -1,4 +1,6 @@
 # Billet
+from datetime import timedelta
+
 
 class Billet:
     totalAmount = 0
@@ -10,8 +12,21 @@ class Billet:
         self.payment_date = payment_date
 
     def calculate(self):
-        # calculate late fee, late payment interest
-        self.totalAmount = self.amount + self.late_fee
+        # todo: calculate late fee, late payment interest
+        self.totalAmount = float(self.amount) + float(self.get_late_payment_interest())
 
     def get_total(self):
         return self.totalAmount
+
+    def get_late_payment_days(self):
+        delta = self.payment_date - self.date_due
+        return delta.days
+
+    def get_late_payment_interest(self):
+        fee = float(self.get_late_payment_days()) * 0.33 * float(self.amount)
+        return fee
+
+    def get_total_late_fee(self):
+        fee = 0.02 * float(self.amount)
+        return fee
+
