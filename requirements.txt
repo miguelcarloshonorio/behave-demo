@@ -3,4 +3,3 @@ PyHamcrest==2.0.3
 PyYAML
 requests==2.26.0
 behave2cucumber
-psycopg2-binary
